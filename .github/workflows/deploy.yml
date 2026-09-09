@@ -1,0 +1,24 @@
+name: Deploy Enterprise Admin
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Deploy to Enterprise Admin Instance
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.ENTERPRISE_ADMIN_IP }}
+          username: ubuntu
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd /var/www/edupulse-enterprise-admin
+            git pull origin main
+            npm install
+            npm run build
+            echo "Enterprise admin deployed successfully"
