@@ -192,7 +192,7 @@ export default function AddSchoolPage() {
         max_students: parseInt(formData.maxStudents),
         max_teachers: parseInt(formData.maxTeachers),
       };
-      await api.post('/enterprise/schools', payload);
+      await api.post('/api/enterprise/schools', payload);
       router.push('/enterprise/schools');
     } catch (err) {
       setErrors({ submit: err.message || 'Failed to create school. Please try again.' });
