@@ -173,20 +173,22 @@ export default function AddSchoolPage() {
     if (!validate()) return;
     setSaving(true);
     try {
-      const payload = {
+     const payload = {
         name: formData.schoolName,
-        udise_code: formData.udiseCode,
-        board: formData.board,
-        type: formData.schoolType,
-        address_line: formData.addressLine,
-        state: formData.state,
-        district: formData.district,
-        mandal: formData.mandal,
+        code: formData.udiseCode,
+        address: formData.addressLine,
         city: formData.city,
-        pincode: formData.pincode,
+        state: formData.state,
+        phone: formData.adminMobile,
+        email: formData.adminEmail,
         admin_name: formData.adminName,
         admin_email: formData.adminEmail,
-        admin_mobile: formData.adminMobile,
+        admin_phone: formData.adminMobile,
+        board: formData.board,
+        type: formData.schoolType,
+        district: formData.district,
+        mandal: formData.mandal,
+        pincode: formData.pincode,
         plan: formData.plan,
         start_date: formData.startDate,
         max_students: parseInt(formData.maxStudents),
